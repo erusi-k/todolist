@@ -145,9 +145,17 @@ th {
     </style>
 </head>
 <body>
+    
     <div class="content">
-        
+
         <h1 class="content-tilte">Todo List</h1>
+        @if(count($errors)>0)
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    @endif    
         <form action="/todo/create" method="POST">
             @csrf
             <input type="text" name ="content" class="content-title_form">

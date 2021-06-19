@@ -11,7 +11,8 @@ class todolist extends Model
     use HasFactory;
     protected $guarded = array('id');
     public static $rules=array(
-        'content'=>'required',
+        'content'=>'required|max:20',
+
 
     );
 

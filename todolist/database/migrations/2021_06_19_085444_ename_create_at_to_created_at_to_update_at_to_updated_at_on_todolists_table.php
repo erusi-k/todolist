@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RenameCreateAtToCreatedAtOnTodolistsTable extends Migration
+class EnameCreateAtToCreatedAtToUpdateAtToUpdatedAtOnTodolistsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,6 +15,7 @@ class RenameCreateAtToCreatedAtOnTodolistsTable extends Migration
     {
         Schema::table('todolists', function (Blueprint $table) {
             $table->renameColumn('create_at','created_at');
+            $table->renameColumn('update_at','updated_at');
         });
     }
 
@@ -26,7 +27,8 @@ class RenameCreateAtToCreatedAtOnTodolistsTable extends Migration
     public function down()
     {
         Schema::table('todolists', function (Blueprint $table) {
-            $table->renameColumn('created_at','create_at');
+            $table->renameColumn('create_at','created_at');
+            $table->renameColumn('update_at','updated_at');
         });
     }
 }
